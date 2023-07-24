@@ -2,8 +2,10 @@ import React from 'react';
 
 type Props = {};
 
-const ContactPage = (props: Props) => {
-  return <div className="h-full w-full">ContactPage</div>;
-};
+const ContactPage = (props: Props) => (
+  <main data-aos="fade-in" className="h-full w-full">
+    Contact
+  </main>
+);
 
 export default ContactPage;

@@ -23,7 +23,8 @@
     "next": "latest",
     "react": "18.2.0",
     "react-chessboard": "^4.0.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",

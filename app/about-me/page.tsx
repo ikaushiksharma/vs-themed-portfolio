@@ -5,10 +5,10 @@ type Props = {};
 
 const AboutPage = (props: Props) => {
   return (
-    <div className="h-full w-full flex flex-row">
+    <main data-aos="fade-in" className="h-full w-full">
       <Sidebar />
       AboutPage
-    </div>
+    </main>
   );
 };
 

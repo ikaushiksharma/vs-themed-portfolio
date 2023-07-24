@@ -2,12 +2,12 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
+import MobileNav from './MobileNav';
 
 type Props = {};
 
 const Navbar = (props: Props) => {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <header className="w-full text-menu-text font-fira_retina">
@@ -47,6 +47,7 @@ const Navbar = (props: Props) => {
           _contact-me
         </Link>
       </nav>
+      <MobileNav path={pathname || '/'} />
     </header>
   );
 };
