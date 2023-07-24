@@ -6,6 +6,7 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "prettier --write .",
+    "format": "next lint && prettier --write .",
     "prepare": "husky install"
   },
   "engines": {
@@ -16,9 +17,12 @@
   },
   "dependencies": {
     "@prisma/client": "^5.0.0",
+    "aos": "^2.3.4",
     "axios": "^0.27.2",
+    "chess.js": "0.12.0",
     "next": "latest",
     "react": "18.2.0",
+    "react-chessboard": "^4.0.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {

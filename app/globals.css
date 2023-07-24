@@ -2,26 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  /* border: 1px solid red; */
+}
+.nav-link {
+  @apply even:border-x border-gray-theme h-full flex items-center px-7 hover:text-white hover:bg-gray-theme/50;
+}
+.nav-link-contact {
+  @apply border-l border-gray-theme h-full flex items-center px-7 hover:text-white hover:bg-gray-theme/50;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.active {
+  color: white;
+  border-bottom: 2px solid #fea55f;
+  /* @apply text-white border border-b-2 border-[#fea55f]; */
+}
+
+#social-icons > a {
+  @apply py-2 px-4 odd:border-x opacity-50 border-gray-theme hover:bg-gray-theme hover:opacity-100;
+}
+
+.css-blurry-gradient-blue {
+  position: fixed;
+  bottom: 25%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  border-radius: 0% 0% 50% 50%;
+  rotate: 10deg;
+  filter: blur(70px);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(77, 91, 206, 1),
+    rgba(76, 0, 255, 0)
+  );
+  opacity: 0.5;
+  z-index: 10;
+}
+
+.css-blurry-gradient-green {
+  position: absolute;
+  top: 20%;
+  right: 30%;
+  width: 300px;
+  height: 300px;
+  border-radius: 0% 50% 0% 50%;
+  filter: blur(70px);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(67, 217, 173, 1),
+    rgba(76, 0, 255, 0)
+  );
+  opacity: 0.5;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .css-blurry-gradient-blue {
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    width: 500px;
+    height: 500px;
+    opacity: 0.7;
+    border-radius: 100% 50% 100% 0%;
+  }
+
+  .css-blurry-gradient-green {
+    position: fixed;
+    top: 10%;
+    right: 35%;
+    filter: blur(100px);
+    rotate: 10deg;
+    width: 400px;
+    height: 400px;
+    opacity: 0.5;
+    border-radius: 100% 0% 0% 0%;
+    rotate: 20deg;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+#console {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    to bottom,
+    rgba(35, 123, 109, 1),
+    rgba(67, 217, 173, 0.13)
+  );
+}
+/* Scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+  border-left: 1px solid #1e2d3d;
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #607b96;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7b9bbb;
+}
+
+/* Fonts */
+
+@font-face {
+  font-family: 'Fira Code Light';
+  src: url('../assets/fonts/fira-code/FiraCode-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code Regular';
+  src: url('../assets/fonts/fira-code/FiraCode-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code Retina';
+  src: url('../assets/fonts/fira-code/FiraCode-Retina.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code Medium';
+  src: url('../assets/fonts/fira-code/FiraCode-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code SemiBold';
+  src: url('../assets/fonts/fira-code/FiraCode-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code Bold';
+  src: url('../assets/fonts/fira-code/FiraCode-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Fira Code Variable';
+  src: url('../assets/fonts/fira-code/FiraCode-Variable.ttf') format('truetype');
 }
