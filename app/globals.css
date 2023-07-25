@@ -18,7 +18,7 @@
 }
 
 #mobile-page-title {
-  @apply lg:hidden flex text-sm h-[70px] text-white px-[25px] items-center;
+  @apply lg:hidden flex text-sm min-h-[70px] text-white px-[25px] items-center;
 }
 #social-icons > a {
   @apply py-2 px-4 odd:border-x opacity-50 border-gray-theme hover:bg-gray-theme hover:opacity-100;
