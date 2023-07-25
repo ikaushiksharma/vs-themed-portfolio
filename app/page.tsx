@@ -17,13 +17,13 @@ export default function Home() {
             </h2>
           </div>
           <div className="flex flex-col text-sm py-10">
-            <span className="text-sm pb-4 leading-[1] text-menu-text hidden md:flex">
-              {'// complete the game to continue'}
+            <span className="text-sm pb-4 leading-[1] text-menu-text flex">
+              {'// Pre Final Year Student - BE CSE'}
             </span>
-            <span className="text-sm pb-4 leading-[1] text-menu-text hidden lg:inline">
-              {'// you can also see it on my Github page'}
+            <span className="text-sm pb-4 lg:leading-[1] text-menu-text break-words leading-relaxed inline">
+              {'// Proficient in ReactJs, NodeJs, TailwindCSS and more...'}
             </span>
-            <span className="text-sm pb-4 leading-[1] text-menu-text inline lg:hidden">
+            <span className="text-sm pb-4 leading-[1] text-menu-text inline">
               {'// find my profile on Github:'}
             </span>
             <p className="code pb-4 font-fira_medium text-hello-name">

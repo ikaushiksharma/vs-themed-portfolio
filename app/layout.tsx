@@ -1,9 +1,7 @@
 import Container from '@/components/Container';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   icons: {
@@ -21,7 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-fira_regular bg-dark-background p-4 lg:p-7 w-screen h-screen">
-        <Container>{children}</Container>
+        <Container>
+          <Toaster position="bottom-right" reverseOrder={false} />
+
+          {children}
+        </Container>
       </body>
     </html>
   );
