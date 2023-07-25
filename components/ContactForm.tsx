@@ -27,7 +27,6 @@ const ContactForm = (props: Props) => {
       message: formState.message,
     });
     const { status, message } = response.data;
-    console.log(status, message);
     toast.dismiss();
 
     if (status === false) {
