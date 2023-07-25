@@ -210,7 +210,7 @@ const ProjectPage = (props: Props) => {
                       />
                     </div>
 
-                    <div className="pb-8 pt-6 px-6 border-top">
+                    <div className="pb-8 pt-6 px-6 border-t border-gray-theme">
                       <p className="text-menu-text font-fira_retina text-sm mb-5">
                         {description}
                       </p>
