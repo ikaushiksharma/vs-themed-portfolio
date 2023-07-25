@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
@@ -24,6 +25,7 @@ export default function RootLayout({
 
           {children}
         </Container>
+        <Analytics />
       </body>
     </html>
   );

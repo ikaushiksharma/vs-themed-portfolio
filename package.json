@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^5.0.0",
+    "@vercel/analytics": "^1.0.1",
     "aos": "^2.3.4",
     "axios": "^0.27.2",
     "chess.js": "0.12.0",
