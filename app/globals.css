@@ -25,7 +25,7 @@
 }
 
 .page-menu {
-  @apply w-full lg:min-w-[275px] lg:max-w-[275px] text-sm;
+  @apply w-full lg:min-w-[275px] lg:max-w-[275px] min-[1920px]:max-w-[310px] min-[1920px]:min-w-[310px] min-[1920px]:text-base text-sm;
 }
 .arrow {
   @apply transition mr-[10px] w-2 h-2;

@@ -3,41 +3,8 @@ import ContactForm from '@/components/ContactForm';
 import FormContentCode from '@/components/FormContentCode';
 import Link from 'next/link';
 import React, { useState } from 'react';
-
+import { data } from '@/utils/data';
 type Props = {};
-
-const data = {
-  contact: [
-    {
-      source: 'kaushik445566@gmail.com',
-      key: 'email',
-      href: 'mailto:kaushik445566@gmail.com',
-    },
-    {
-      source: '+91 7837988677',
-      key: 'phone',
-      href: 'tel:+91 7837988677',
-    },
-  ],
-  find_me_also_in: [
-    {
-      title: 'Github Profile',
-      url: 'https://github.com/ikaushiksharma',
-    },
-    {
-      title: 'Linkedin Profile',
-      url: 'https://linkedin.com/in/ikaushiksharma',
-    },
-    {
-      title: 'Instagram Profile',
-      url: 'https://instagram.com/ikaushiksharma',
-    },
-    {
-      title: 'Twitter Profile',
-      url: 'https://twitter.com/ikaushiksharma',
-    },
-  ],
-};
 
 const ContactPage = (props: Props) => {
   const [contactDetailsOpen, setContactDetailsOpen] = useState(false);
