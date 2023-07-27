@@ -87,17 +87,34 @@ const LeftContent = ({ currentPage }: Props) => {
 
   `;
 
+  const music = `/**
+  * Listening to music is my beloved hobby.
+  * It brings me joy and inspiration, and I 
+  * enjoy exploring diverse genres and artists.
+  * This passion for music has taught me
+  * valuable lessons in discipline and
+  * creativity, enhancing both my personal
+  * and professional life.
+  */`;
+
+  const musicResponsive = `
+  Listening to music is my beloved hobby. It brings me joy and inspiration, and I
+  enjoy exploring diverse genres and artists.<br /><br />This passion for music has taught me valuable lessons in discipline 
+  and creativity, <br /><br />
+  enhancing both my personal and professional life.
+  `;
+
   return (
     <div
       className="overflow-visible lg:overflow-y-scroll"
       data-aos="fade-right"
     >
-      {currentPage.folder === 'bio' && currentPage.file === '' && (
+      {currentPage.folder === 'bio' && (
         <CommentSyntaxHighlighter responsiveContent={responsiveBio}>
           {bio}
         </CommentSyntaxHighlighter>
       )}
-      {currentPage.folder === 'interests' && currentPage.file === '' && (
+      {currentPage.folder === 'interests' && (
         <CommentSyntaxHighlighter responsiveContent={responsiveInterested}>
           {interested}
         </CommentSyntaxHighlighter>
@@ -356,14 +373,14 @@ const LeftContent = ({ currentPage }: Props) => {
           ]}
         />
       )}
-      {currentPage.folder === 'reading' && currentPage.file === '' && (
+      {currentPage.folder === 'reading' && (
         <CommentSyntaxHighlighter responsiveContent={responsiveReading}>
           {reading}
         </CommentSyntaxHighlighter>
       )}
-      {currentPage.folder === 'music' && currentPage.file === '' && (
-        <CommentSyntaxHighlighter responsiveContent="Coming Soon">
-          Coming Soon
+      {currentPage.folder === 'music' && (
+        <CommentSyntaxHighlighter responsiveContent={musicResponsive}>
+          {music}
         </CommentSyntaxHighlighter>
       )}
     </div>

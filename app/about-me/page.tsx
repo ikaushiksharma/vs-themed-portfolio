@@ -65,6 +65,10 @@ const AboutPage = (props: Props) => {
   const selectPage = (folder: string, file: string) => {
     setCurrentPage({ folder, file });
   };
+
+  console.log('ACTIVE FOLDERS', activeFolders);
+  console.log('CURRENT PAGE', currentPage);
+
   return (
     <main
       data-aos="fade-in"
@@ -99,11 +103,16 @@ const AboutPage = (props: Props) => {
                 <div
                   className="flex col-span-2 text-sm hover:text-white cursor-pointer"
                   onClick={() => {
-                    activeFolders.includes(item.title)
-                      ? setActiveFolders((prev) =>
-                          prev.filter((currItem) => item.title !== currItem)
-                        )
-                      : setActiveFolders((prev) => [...prev, item.title]);
+                    if (activeFolders.includes(item.title))
+                      setActiveFolders((prev) =>
+                        prev.filter((currItem) => item.title !== currItem)
+                      );
+                    else {
+                      activeFolders.length > 0 &&
+                        activeFolders.at(0) === currData.info[0].title &&
+                        activeFolders.shift();
+                      setActiveFolders((prev) => [...prev, item.title]);
+                    }
                   }}
                 >
                   {item.files.length === 0 ? (
