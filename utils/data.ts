@@ -39,7 +39,7 @@ export const sections = [
       { title: 'experience', files: ['communities', 'industry'] },
       {
         title: 'skills',
-        files: ['front-end', 'back-end', 'database', 'others'],
+        files: ['front-end', 'back-end', 'databases', 'others'],
       },
     ],
   },

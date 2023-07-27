@@ -68,7 +68,7 @@ const AboutPage = (props: Props) => {
   return (
     <main
       data-aos="fade-in"
-      className="h-full w-full flex flex-row max-lg:flex-col flex-auto overflow-y-scroll lg:overflow-y-hidden"
+      className="h-full w-full flex flex-row max-lg:flex-col flex-auto overflow-scroll lg:overflow-y-hidden"
     >
       <div id="mobile-page-title">
         <h2>_about-me</h2>
@@ -360,8 +360,8 @@ const AboutPage = (props: Props) => {
 
       {/* left side content */}
 
-      <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-scroll lg:overflow-y-hidden w-full">
-        <div className="w-full h-full overflow-y-scroll flex flex-col lg:border-r border-gray-theme">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 h-full w-full">
+        <div className="w-full lg:h-full overflow-visible lg:overflow-y-scroll flex flex-col lg:border-r border-gray-theme">
           <div className="min-h-[35px] max-lg:hidden max-h-[35px] w-full px-4 py-8 lg:p-0 flex lg:border-b lg:border-r border-gray-theme items-center">
             <div className="flex items-center border-r border-gray-theme h-full">
               <p className="font-fira_regular text-menu-text text-sm px-3">
@@ -382,7 +382,12 @@ const AboutPage = (props: Props) => {
 
           <LeftContent currentPage={currentPage} />
         </div>
-        <div id="right" className=""></div>
+        <div
+          id="right"
+          className="hidden w-full h-full items-center justify-center lg:flex"
+        >
+          <h1 className="text-5xl text-menu-text">Coming Soon</h1>
+        </div>
       </div>
     </main>
   );
