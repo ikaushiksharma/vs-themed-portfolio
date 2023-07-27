@@ -4,7 +4,7 @@ import InfoSection from '@/components/InfoSection';
 import React, { useEffect, useState } from 'react';
 import { data, sections } from '@/utils/data';
 import Link from 'next/link';
-import MobileAboutMenu from '@/components/MobileAboutMenu';
+import LeftContent from '@/components/LeftContent';
 
 type Props = {};
 
@@ -65,13 +65,10 @@ const AboutPage = (props: Props) => {
   const selectPage = (folder: string, file: string) => {
     setCurrentPage({ folder, file });
   };
-  console.log({ activeFolders });
-  console.log({ currData });
-  console.log({ currentPage });
   return (
     <main
       data-aos="fade-in"
-      className="h-full w-full flex flex-row max-lg:flex-col flex-auto overflow-hidden"
+      className="h-full w-full flex flex-row max-lg:flex-col flex-auto overflow-y-scroll lg:overflow-y-hidden"
     >
       <div id="mobile-page-title">
         <h2>_about-me</h2>
@@ -100,7 +97,7 @@ const AboutPage = (props: Props) => {
                 className="grid grid-cols-2 px-5 items-center my-2 font-fira_regular text-menu-text"
               >
                 <div
-                  className="flex col-span-2 text-sm hover:text-white hover:cursor-pointer"
+                  className="flex col-span-2 text-sm hover:text-white cursor-pointer"
                   onClick={() => {
                     activeFolders.includes(item.title)
                       ? setActiveFolders((prev) =>
@@ -179,9 +176,9 @@ const AboutPage = (props: Props) => {
               className={`py-[10px] ${contactDetailsOpen ? 'block' : 'hidden'}`}
             >
               {data.contact.map((item, idx) => (
-                <div key={idx} className="flex text-xs items-center py-1 px-2">
+                <div key={idx} className="flex text-xs items-center py-1 px-6">
                   <img
-                    className="w-3 h-3 mr-[2px]"
+                    className="w-3 h-3 mx-3"
                     src={'/icons/' + item.key + '.svg'}
                   />
                   <Link
@@ -197,11 +194,11 @@ const AboutPage = (props: Props) => {
           </div>
         </div>
         <div className="max-lg:w-full lg:hidden">
-          <div className="lg:hidden w-full font-fira_regular">
+          <div className="w-full font-fira_regular">
             {sections.map((section, idx) => (
               <div key={idx} className="w-full bg-gray-theme mb-1">
                 <div
-                  className="flex lg:hidden py-1.5 px-5"
+                  className="flex lg:hidden cursor-pointer py-1.5 px-5"
                   onClick={() => {
                     sectionsOpen.includes(section.title)
                       ? setSectionsOpen((prev) =>
@@ -268,7 +265,7 @@ const AboutPage = (props: Props) => {
                               currentPage.folder === item.title ||
                               activeFolders.includes(item.title)
                                 ? 'text-white'
-                                : ''
+                                : 'text-menu-text'
                             }`}
                           >
                             {item.title}
@@ -308,7 +305,7 @@ const AboutPage = (props: Props) => {
                 )}
               </div>
             ))}
-            <div className="w-full border mb-1">
+            {/* <div className="w-full bg-gray-theme mb-1">
               <div
                 className="flex lg:hidden py-1.5 px-5"
                 onClick={() => setContactDetailsOpen(!contactDetailsOpen)}
@@ -320,13 +317,73 @@ const AboutPage = (props: Props) => {
                 />
                 <p className="text-white text-sm">contacts</p>
               </div>
+            </div> */}
+            <div id="contacts">
+              <div
+                className="flex items-center px-5 w-full h-[35px] bg-gray-theme mb-1 lg:mb-0 lg:bg-transparent border-b cursor-pointer border-gray-theme lg:hover:bg-gray-theme"
+                onClick={() => setContactDetailsOpen(!contactDetailsOpen)}
+              >
+                <img
+                  className={`arrow ${contactDetailsOpen ? 'rotate-90' : ''}`}
+                  src="/icons/arrow.svg"
+                />
+                <h3>contacts</h3>
+              </div>
+              <div
+                className={`py-[10px] ${
+                  contactDetailsOpen ? 'block' : 'hidden'
+                }`}
+              >
+                {data.contact.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex text-xs items-center py-1 px-6"
+                  >
+                    <img
+                      className="w-3 h-3 mx-3"
+                      src={'/icons/' + item.key + '.svg'}
+                    />
+                    <Link
+                      target={'_blank'}
+                      href={item.href}
+                      className="font-fira_retina text-menu-text hover:text-white"
+                    >
+                      {item.source}
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <h1 className="text-2xl lg:text-9xl flex items-center justify-center w-full h-full">
-        {currentPage.folder + ' and ' + currentPage.file}
-      </h1>
+
+      {/* left side content */}
+
+      <div className="flex flex-col lg:grid lg:grid-cols-2 h-full overflow-y-scroll lg:overflow-y-hidden w-full">
+        <div className="w-full h-full overflow-y-scroll flex flex-col lg:border-r border-gray-theme">
+          <div className="min-h-[35px] max-lg:hidden max-h-[35px] w-full px-4 py-8 lg:p-0 flex lg:border-b lg:border-r border-gray-theme items-center">
+            <div className="flex items-center border-r border-gray-theme h-full">
+              <p className="font-fira_regular text-menu-text text-sm px-3">
+                {currSection +
+                  ' > ' +
+                  currentPage.folder +
+                  (currentPage.file === '' ? '' : ' > ' + currentPage.file)}
+              </p>
+              <img src="/icons/close.svg" alt="" className="mx-3" />
+            </div>
+          </div>
+          <div className="flex items-end py-6 px-5 lg:hidden font-fira_retina">
+            <span className="text-white">{'// '} </span>
+            <h3 className="text-white px-2">{currentPage.folder}</h3>
+            <span className="text-menu-text">{' / '}</span>
+            <h3 className="text-menu-text pl-2">{currentPage.file}</h3>
+          </div>
+
+          <LeftContent currentPage={currentPage} />
+        </div>
+        <div id="right" className=""></div>
+      </div>
     </main>
   );
 };
