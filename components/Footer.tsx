@@ -5,10 +5,10 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <footer className="flex border-t border-gray-theme md:justify-between text-menu-text font-fira_retina min-h-[40px] h-[40px] text-[13px]">
-      <div className="w-2/3 flex justify-between md:justify-start">
+      <div className="lg:w-2/3 flex  justify-between md:justify-start">
         <span
           id="social-title"
-          className="h-full flex justify-center items-center border-right px-5"
+          className="h-full flex justify-center items-center border-right px-4 lg:px-5"
         >
           find me in:
         </span>
@@ -47,7 +47,7 @@ const Footer = (props: Props) => {
           </a>
         </div>
       </div>
-      <div className="flex text-sm items-center hover:opacity-0 transition-opacity cursor-not-allowed w-full">
+      <div className="hidden lg:flex text-sm items-center hover:opacity-0 transition-opacity cursor-not-allowed w-full">
         cmd + k / ctrl + k for command menu
       </div>
 

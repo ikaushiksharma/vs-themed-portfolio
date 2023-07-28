@@ -40,7 +40,7 @@ const actions = [
 const Provider = ({ children }: Props) => (
   <KBarProvider actions={actions}>
     <KBarPortal>
-      <KBarPositioner className='bg-dark-background/20   backdrop-blur-sm'>
+      <KBarPositioner className="bg-dark-background/20   backdrop-blur-sm">
         <KBarAnimator className="backdrop-blur-lg ">
           <KBarSearch className="bg-dark-background text-menu-text text-lg p-4 w-[40vw] rounded-lg" />
           <RenderResults />
