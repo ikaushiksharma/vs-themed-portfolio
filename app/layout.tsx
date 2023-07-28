@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
+import Provider from './provider';
 
 export const metadata: Metadata = {
   icons: {
@@ -20,12 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-fira_regular bg-dark-background p-4 lg:p-7 w-screen h-screen">
-        <Container>
-          <Toaster position="bottom-right" reverseOrder={false} />
-
-          {children}
-        </Container>
-        <Analytics />
+        <Provider>
+          <Container>
+            <Toaster position="bottom-right" reverseOrder={false} />
+            {children}
+          </Container>
+          <Analytics />
+        </Provider>
       </body>
     </html>
   );
