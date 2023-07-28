@@ -314,19 +314,6 @@ const AboutPage = (props: Props) => {
                 )}
               </div>
             ))}
-            {/* <div className="w-full bg-gray-theme mb-1">
-              <div
-                className="flex lg:hidden py-1.5 px-5"
-                onClick={() => setContactDetailsOpen(!contactDetailsOpen)}
-              >
-                <img
-                  src="/icons/arrow.svg"
-                  alt=""
-                  className="mr-[10px] transition"
-                />
-                <p className="text-white text-sm">contacts</p>
-              </div>
-            </div> */}
             <div id="contacts">
               <div
                 className="flex items-center px-5 w-full h-[35px] bg-gray-theme mb-1 lg:mb-0 lg:bg-transparent border-b cursor-pointer border-gray-theme lg:hover:bg-gray-theme"
@@ -367,8 +354,6 @@ const AboutPage = (props: Props) => {
         </div>
       </div>
 
-      {/* left side content */}
-
       <div className="flex flex-col lg:grid lg:grid-cols-2 h-full w-full">
         <div className="w-full lg:h-full overflow-visible lg:overflow-y-scroll flex flex-col lg:border-r border-gray-theme">
           <div className="min-h-[35px] max-lg:hidden max-h-[35px] w-full px-4 py-8 lg:p-0 flex lg:border-b lg:border-r border-gray-theme items-center">
@@ -393,7 +378,7 @@ const AboutPage = (props: Props) => {
         </div>
         <div
           id="right"
-          className="hidden w-full h-full items-center justify-center lg:flex"
+          className="hidden w-full h-full font-fira_retina items-center justify-center lg:flex"
         >
           <h1 className="text-5xl text-menu-text">Coming Soon</h1>
         </div>

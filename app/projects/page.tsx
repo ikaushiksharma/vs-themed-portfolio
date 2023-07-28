@@ -1,76 +1,120 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
+import { getProjects, getTechs } from '@/utils/cmsFetch';
+import { metadata } from 'app/layout';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 type Props = {};
-const data = [
-  { name: 'react', icon: 'react' },
-  { name: 'nextjs', icon: 'react' },
-  { name: 'nodejs', icon: 'react' },
-  { name: 'typescript', icon: 'react' },
-  { name: 'tailwind', icon: 'react' },
-  { name: 'prisma', icon: 'react' },
-  { name: 'html', icon: 'react' },
-  { name: 'javascript', icon: 'react' },
-];
-
-const projects = [
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'javascript'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'html'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'html'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'html'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'html'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-  {
-    title: 'Lorem Ipsum',
-    url: 'https://github.com/ikaushiksharma',
-    tech: ['react', 'html'],
-    img: 'https://picsum.photos/536/354',
-    description: 'Duis aute irure dolor in velit esse cillum dolore.',
-  },
-];
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'javascript'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'html'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'html'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'html'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'html'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+//   {
+//     title: 'Lorem Ipsum',
+//     url: 'https://github.com/ikaushiksharma',
+//     tech: ['react', 'html'],
+//     img: 'https://picsum.photos/536/354',
+//     description: 'Duis aute irure dolor in velit esse cillum dolore.',
+//   },
+// ];
 type Project = {
   title: string;
-  url: string;
+  githubLink: string;
+  liveLink: string;
   tech: Array<string>;
-  img: string;
+  image: string;
   description: string;
 };
 const ProjectPage = (props: Props) => {
+  // let projects: Array<Project> = [];
+  const [projects, setProjects] = useState([] as Array<Project>);
+  useEffect(() => {
+    const getProjectData = async () => {
+      return await getProjects();
+    };
+    getProjectData().then((data) => {
+      const projectObjects = data.objects;
+      setProjects(
+        //@ts-ignore
+        projectObjects.map((project) => {
+          const { metadata } = project;
+          return {
+            title: metadata.title,
+            githubLink: metadata.githublink,
+            liveLink: metadata.livelink,
+            tech: metadata.technologies[0].tech.map(
+              //@ts-ignore
+              (tech) => tech.metadata.title
+            ),
+            image: metadata.image,
+            description: metadata.description,
+          };
+        })
+      );
+    });
+  }, []);
+
+  useEffect(() => {
+    const getTechData = async () => {
+      return await getTechs();
+    };
+    const techData = getTechData().then((data) => {
+      const techObjects = data.objects;
+      setTechs(
+        //@ts-ignore
+        techObjects.map((tech) => {
+          const { metadata } = tech;
+          return {
+            title: metadata.title,
+            icon: metadata.url,
+          };
+        })
+      );
+    });
+  }, []);
+  const [techs, setTechs] = useState<Array<{ title: string; icon: string }>>(
+    []
+  );
   const [techListOpen, setTechListOpen] = useState(true);
   const [selectedTechs, setSelectedTechs] = useState([] as Array<string>);
   const [selectedProjects, setSelectedProjects] = useState([
     ...projects,
   ] as Array<Project>);
+  useEffect(() => {
+    setSelectedProjects([...projects]);
+  }, [projects]);
   useEffect(() => {
     if (selectedTechs.length === 0) {
       setSelectedProjects([...projects]);
@@ -82,7 +126,6 @@ const ProjectPage = (props: Props) => {
       );
     }
   }, [selectedTechs]);
-
   return (
     <main
       data-aos="fade-in"
@@ -104,24 +147,24 @@ const ProjectPage = (props: Props) => {
             <h3>projects</h3>
           </div>
           <div className={`py-[10px] ${techListOpen ? 'block' : 'hidden'}`}>
-            {data.map((item, idx) => (
+            {techs.map((item, idx) => (
               <div
                 key={idx}
                 className="flex text-sm opacity-75 justify-between items-center py-2 px-6"
               >
                 <input
                   type="checkbox"
-                  checked={selectedTechs.includes(item.name)}
+                  checked={selectedTechs.includes(item.title)}
                   onClick={() => {
-                    if (selectedTechs.includes(item.name)) {
+                    if (selectedTechs.includes(item.title)) {
                       setSelectedTechs(
-                        selectedTechs.filter((tech) => tech !== item.name)
+                        selectedTechs.filter((tech) => tech !== item.title)
                       );
                     } else {
-                      setSelectedTechs([...selectedTechs, item.name]);
+                      setSelectedTechs([...selectedTechs, item.title]);
                     }
                   }}
-                  id={item.name}
+                  id={item.title}
                   className="bg-[#011221] border-2 mr-4 text-menu-text border-gray-theme rounded-lg"
                 />
                 <div className="flex flex-1 items-center">
@@ -130,7 +173,7 @@ const ProjectPage = (props: Props) => {
                     src={'/icons/techs/' + item.icon + '.svg'}
                   />
                   <span className="font-fira_retina capitalize text-menu-text hover:text-white">
-                    {item.name}
+                    {item.title}
                   </span>
                 </div>
               </div>
@@ -175,7 +218,14 @@ const ProjectPage = (props: Props) => {
           <div className="grid grid-cols-1 max-md:px-6 max-md:pb-10 md:px-12 md:py-10 md:grid-cols-2 min-[1350px]:px-20 min-[1350px]:grid-cols-3 max-w-full h-full overflow-scroll lg:self-center">
             {(selectedProjects as Array<Project>).map(
               (
-                { title, tech, url, img, description }: Project,
+                {
+                  title,
+                  tech,
+                  githubLink,
+                  liveLink,
+                  image,
+                  description,
+                }: Project,
                 index: number
               ) => (
                 <div
@@ -197,14 +247,18 @@ const ProjectPage = (props: Props) => {
                         {tech.map((techo: string, index: number) => (
                           <img
                             key={index}
-                            src={'/icons/techs/filled/' + techo + '.svg'}
+                            src={
+                              '/icons/techs/filled/' +
+                              techo.toLowerCase() +
+                              '.svg'
+                            }
                             alt=""
                             className="w-6 h-6 mx-1 hover:opacity-75"
                           />
                         ))}
                       </div>
                       <img
-                        src={img}
+                        src={image}
                         alt=""
                         className="rounded-tr-2xl rounded-tl-2xl"
                       />
@@ -214,13 +268,22 @@ const ProjectPage = (props: Props) => {
                       <p className="text-menu-text font-fira_retina text-sm mb-5">
                         {description}
                       </p>
-                      <Link
-                        href={url}
-                        target="_blank"
-                        className="text-white bg-[#1C2B3A] hover:bg-[#263B50] font-fira_retina py-2 px-4 w-fit text-xs rounded-lg"
-                      >
-                        view-project
-                      </Link>
+                      <div className="flex items-center justify-evenly">
+                        <Link
+                          href={githubLink}
+                          target="_blank"
+                          className="text-white bg-[#1C2B3A] hover:bg-[#263B50] font-fira_retina py-2 px-2 w-fit text-xs rounded-lg"
+                        >
+                          view-source
+                        </Link>
+                        <Link
+                          href={liveLink}
+                          target="_blank"
+                          className="text-white bg-[#1C2B3A] hover:bg-[#263B50] font-fira_retina py-2 px-2 w-fit text-xs rounded-lg"
+                        >
+                          view-project
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
