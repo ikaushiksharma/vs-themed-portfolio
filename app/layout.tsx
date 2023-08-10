@@ -1,9 +1,9 @@
 import Container from '@/components/Container';
-import { Analytics } from '@vercel/analytics/react';
 import './globals.css';
 import type { Metadata } from 'next';
 import { Toaster } from 'react-hot-toast';
 import Provider from './provider';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   icons: {
@@ -26,8 +26,17 @@ export default function RootLayout({
             <Toaster position="bottom-right" reverseOrder={false} />
             {children}
           </Container>
-          <Analytics />
         </Provider>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-07R8J9NNEY" />
+        <Script id="google-analytics">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-07R8J9NNEY');        
+        `}
+        </Script>
       </body>
     </html>
   );

@@ -1,6 +1,8 @@
 'use client';
 import useMobileNav from 'app/stores/nav';
 import { useRouter } from 'next/navigation';
+import { Router } from 'next/router';
+import { useEffect } from 'react';
 type Props = {
   path: string;
 };
@@ -12,10 +14,16 @@ const MobileNav = ({ path }: Props) => {
   const toggleMobileMenu = () => {
     toggleMobileNav();
   };
+
+  useEffect(() => {
+  }, []);
   const goToPath = (path: string) => {
     router.push(path);
-    toggleMobileMenu();
   };
+
+  // setTimeout(() => toggleMobileMenu(), 3000);
+  // toggleMobileMenu();
+  // };
   return (
     <nav className="w-full z-10 lg:hidden">
       <div className="w-full h-16 flex justify-between items-center border-b border-gray-theme">
