@@ -15,8 +15,7 @@ const MobileNav = ({ path }: Props) => {
     toggleMobileNav();
   };
 
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
   const goToPath = (path: string) => {
     router.push(path);
   };

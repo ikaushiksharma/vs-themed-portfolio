@@ -27,7 +27,7 @@ const AboutPage = (props: Props) => {
     setCurrSection(section);
   };
   useEffect(() => {
-    let currData = sections.filter(({ title }) => title === currSection)[0];
+    let currData = sections?.filter(({ title }) => title === currSection)[0];
     setCurrData(currData);
     setActiveFolders([currData.info[0].title]);
   }, [currSection]);
