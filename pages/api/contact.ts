@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   try {
     let { name, email, message } = req.body;
-    console.log(name, email, message);
+    // console.log(name, email, message);
     const newMessage = await prisma.users.create({
       data: {
         email,

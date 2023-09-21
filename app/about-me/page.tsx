@@ -66,8 +66,8 @@ const AboutPage = (props: Props) => {
     setCurrentPage({ folder, file });
   };
 
-  console.log('ACTIVE FOLDERS', activeFolders);
-  console.log('CURRENT PAGE', currentPage);
+  // console.log('ACTIVE FOLDERS', activeFolders);
+  // console.log('CURRENT PAGE', currentPage);
 
   return (
     <main
@@ -380,7 +380,12 @@ const AboutPage = (props: Props) => {
           id="right"
           className="hidden w-full h-full font-fira_retina items-center justify-center lg:flex"
         >
-          <h1 className="text-5xl text-menu-text">Coming Soon</h1>
+          {/* <h1 className="text-5xl text-menu-text">Coming Soon</h1> */}
+          <iframe
+            className="h-full w-full"
+            src="https://cdn.cosmicjs.com/7a0455f0-5870-11ee-8d99-6566412c38cc-resume-final.pdf"
+            frameBorder="0"
+          ></iframe>
         </div>
       </div>
     </main>

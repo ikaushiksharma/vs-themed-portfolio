@@ -8,7 +8,7 @@ type Props = {};
 const ContactForm = (props: Props) => {
   const formState = useFormData();
   const submitHandler = async (e: any) => {
-    console.log(formState.name, formState.email, formState.message);
+    // console.log(formState.name, formState.email, formState.message);
     e.preventDefault();
     toast('Sending!', {
       icon: '⌛',
