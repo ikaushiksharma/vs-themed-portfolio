@@ -174,12 +174,32 @@ const LeftContent = ({ currentPage }: Props) => {
         currentPage.file === 'communities' && (
           <>
             <AboutCard
+              icon="https://gfgcuiet.vercel.app/_next/image?url=%2Fimages%2Flogo.png&w=1920&q=75"
+              institute="Geeks For Geeks Student Chapter"
+              courses={[
+                {
+                  title: 'Tech Lead',
+                  duration: 'Jul 2023 - Present',
+                  skills: [
+                    'NextJs',
+                    'TailwindCSS',
+                    'MongoDB',
+                    'NodeJs',
+                    'ExpressJs',
+                    'Framer Motion',
+                  ],
+                  description:
+                    'Revamped and built the new club website "https://gfgcuiet.vercel.app" and organized various events and workshops as speaker',
+                },
+              ]}
+            />
+            <AboutCard
               icon="https://logogen.gdscasu.com/logos/gdsc-logo.png"
               institute="Google Developer Student Clubs"
               courses={[
                 {
                   title: 'Web Developer',
-                  duration: 'Sept 2022 - Present',
+                  duration: 'Sept 2022 - Jul 2023',
                   skills: ['ReactJs', 'TailwindCSS'],
                   description:
                     'Worked on various projects such as TENET, OCTAHACKS, etc',
@@ -188,22 +208,14 @@ const LeftContent = ({ currentPage }: Props) => {
             />
             <AboutCard
               icon="https://gfg-frontend.vercel.app/images/logo.png"
-              institute="GeeksForGeeks Club"
+              institute="Geeks For Geeks Student Chapter"
               courses={[
                 {
                   title: 'Technical Coordinator',
                   duration: 'Apr 2022 - Present',
-                  skills: [
-                    'ReactJs',
-                    'TailwindCSS',
-                    'NodeJs',
-                    'ExpressJs',
-                    'MongoDB',
-                    'NextJs',
-                    'Framer Motion',
-                  ],
+                  skills: ['ReactJs', 'NodeJs', 'ExpressJs', 'MongoDB'],
                   description:
-                    'Build Club Website and organized various events',
+                    'Build Club Website and organized various events and workshops',
                 },
               ]}
             />
@@ -211,19 +223,47 @@ const LeftContent = ({ currentPage }: Props) => {
         )}
       {currentPage.folder === 'experience' &&
         currentPage.file === 'industry' && (
-          <AboutCard
-            institute="Attirox Ventures, Pvt Ltd"
-            icon="https://www.attirox.in/logoMini.png"
-            courses={[
-              {
-                title: 'Web Lead',
-                duration: 'May 2023 - Present',
-                skills: ['ReactJs', 'TailwindCSS', 'NextJs', 'Framer Motion'],
-                description:
-                  'Build and maintain the company website and other projects',
-              },
-            ]}
-          />
+          <>
+            {' '}
+            <AboutCard
+              institute="Freelance Web Developer"
+              icon="https://static.vecteezy.com/system/resources/thumbnails/004/485/532/small/man-working-at-laptop-work-at-home-concept-design-freelance-man-working-on-laptop-smiling-man-is-sitting-with-laptop-around-the-internet-email-message-icons-freelancer-programmer-with-a-laptop-vector.jpg"
+              courses={[
+                {
+                  title: 'Web Developer',
+                  duration: 'May 2023 - Present',
+                  skills: [
+                    'ReactJs',
+                    'TailwindCSS',
+                    'NextJs',
+                    'NodeJs',
+                    'SQL',
+                    'AWS',
+                    'Framer Motion',
+                    'GSAP',
+                    'Spline',
+                    'WebRTC',
+                    'Redis',
+                  ],
+                  description:
+                    'Worked on various projects such as E-commerce, Social Media, and Video Conferencing such as "https://capilus.in"',
+                },
+              ]}
+            />
+            <AboutCard
+              institute="Attirox Ventures, Pvt Ltd"
+              icon="https://www.attirox.in/logoMini.png"
+              courses={[
+                {
+                  title: 'Web Lead',
+                  duration: 'May 2023 - Nov 2023',
+                  skills: ['ReactJs', 'TailwindCSS', 'NextJs', 'Framer Motion'],
+                  description:
+                    'Build and maintain the company website and other projects',
+                },
+              ]}
+            />
+          </>
         )}
       {currentPage.folder === 'skills' && currentPage.file === 'front-end' && (
         <SkillSection
