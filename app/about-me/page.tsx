@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { data, sections } from '@/utils/data';
 import Link from 'next/link';
 import LeftContent from '@/components/LeftContent';
+import Model from '@/components/Model';
 
 type Props = {};
 
@@ -378,14 +379,9 @@ const AboutPage = (props: Props) => {
         </div>
         <div
           id="right"
-          className="hidden w-full h-full font-fira_retina items-center justify-center lg:flex"
+          className="hidden w-full h-full font-fira_retina bg-inherit items-center justify-center lg:flex"
         >
-          {/* <h1 className="text-5xl text-menu-text">Coming Soon</h1> */}
-          <iframe
-            className="h-full w-full"
-            src="https://cdn.cosmicjs.com/7a0455f0-5870-11ee-8d99-6566412c38cc-resume-final.pdf"
-            frameBorder="0"
-          ></iframe>
+          <Model />
         </div>
       </div>
     </main>
