@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     icon: { url: './favicon.ico', type: 'image/x-icon', rel: 'shortcut icon' },
   },
   title: 'Kaushik Sharma',
-  description: 'VsCode Themed Portfolio for Kaushik Sharma',
+  description: 'Kaushik Sharma Portfolio | BE CSE | Chitkara Univeristy | FullStack Developer',
 };
 
 export default function RootLayout({
